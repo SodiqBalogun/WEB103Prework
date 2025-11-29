@@ -1,4 +1,4 @@
-const ContentCreator = ( {name, url, description, imageURL} = props ) => {
+const ContentCreator = ({ name, url, description, imageURL }) => {
     return (
         <div className="content-creator">
             <img src={imageURL} alt={`${name}'s profile`} className="creator-image" />

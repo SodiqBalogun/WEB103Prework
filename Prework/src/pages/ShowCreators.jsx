@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import ContentCreator from "../Components/ContentCreator.jsx";
 import { supabase } from '../client';
+import { BrowserRouter, Route, Routes, Link, useRoutes } from 'react-router-dom';
 
 const ShowCreators = () => {
   const [creators, setCreators] = useState([]);
@@ -37,14 +38,18 @@ const ShowCreators = () => {
       {creators.length === 0 ? (
         <p>No content creators in the database.</p>
       ) : (
-        creators.map((c, idx) => (
-          <ContentCreator
-            key={c.id ?? c.name ?? idx}
-            name={c.name}
-            url={c.url}
-            description={c.description}
-            imageURL={c.image_url ?? c.imageURL ?? ''}
-          />
+        creators.map((c) => (
+            <div key={c.name} className="creator-card">
+                <Link to={`/view/${c.id}`} textDecoration="none">
+                    <ContentCreator
+                        key={c.name}
+                        name={c.name}
+                        url={c.url}
+                        description={c.description}
+                        imageURL={c.imageURL}
+                    />
+                </Link>
+            </div>
         ))
       )}
     </div>
