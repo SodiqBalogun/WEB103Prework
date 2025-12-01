@@ -39,17 +39,17 @@ const ShowCreators = () => {
         <p>No content creators in the database.</p>
       ) : (
         creators.map((c) => (
-            <div key={c.name} className="creator-card">
-                <Link to={`/view/${c.id}`} textDecoration="none">
-                    <ContentCreator
-                        key={c.name}
-                        name={c.name}
-                        url={c.url}
-                        description={c.description}
-                        imageURL={c.imageURL}
-                    />
-                </Link>
-            </div>
+          <div key={c.id ?? c.name} className="creator-card">
+            <Link to={`/view/${c.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <ContentCreator
+                id={c.id}
+                name={c.name}
+                url={c.url}
+                description={c.description}
+                imageURL={c.image_url ?? c.imageURL ?? ''}
+              />
+            </Link>
+          </div>
         ))
       )}
     </div>
