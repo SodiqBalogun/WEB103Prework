@@ -34,6 +34,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Link to="/add"> GO TO ADD </Link>
 
       <Routes>
         <Route path="/" element={<ShowCreators />} />
@@ -43,6 +44,7 @@ function App() {
       </Routes>
       
       </BrowserRouter>
+
     </div>
   )
 }
