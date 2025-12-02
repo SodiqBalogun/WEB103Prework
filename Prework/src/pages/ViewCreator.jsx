@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import ContentCreator from "../Components/ContentCreator.jsx";
 import { supabase } from '../client';
 
@@ -7,6 +7,7 @@ const ViewCreator = () => {
     const { id } = useParams();
     const [creator, setCreator] = useState(null);
     const [loading, setLoading] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!id) return;
@@ -45,6 +46,22 @@ const ViewCreator = () => {
         </div>
     );
 
+    const deleteCreator = async () => {
+        if (confirm("Are you sure you want to delete this creator? This action cannot be undone.")) {
+            const { error } = await supabase
+                .from('creators')
+                .delete()
+                .eq('id', id);
+            if (error) console.error("Error updating creator:", error);
+            else {
+                alert("Creator deleted successfully.");
+                navigate("/");
+            }
+        } else {
+            alert("Creator deletion cancelled.");
+        }
+    };
+
     return (
         <div className="CreatorInfo">
             <Link to="/"> HOME </Link>
@@ -54,8 +71,8 @@ const ViewCreator = () => {
             <img src={creator.imageURL ?? ''} alt="Creator Image" height="230px"/>
 
             <div className="CreatorWidgets">
-                 <Link to={`/edit/${creator.id}`}> <button> Edit Creator </button> </Link> 
-                <button> Delete Creator </button>
+                <Link to={`/edit/${creator.id}`}> <button> Edit Creator </button> </Link> 
+                <button onClick={deleteCreator}> Delete Creator </button>
             </div>
         </div>
     );

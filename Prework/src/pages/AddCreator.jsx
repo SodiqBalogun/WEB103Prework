@@ -32,6 +32,11 @@ const AddCreators = () => {
         .select();
 
     alert('New Creator added successfully');
+
+    document.getElementById('cName').value = '';
+    document.getElementById('cURL').value = '';
+    document.getElementById('cDesc').value = '';
+    document.getElementById('cImgURL').value = '';
   };
 
 

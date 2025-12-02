@@ -57,6 +57,12 @@ const EditCreators = () => {
   if (loading) return <div>Loading creator...</div>;
 
   const updateCreator = async () => {
+         // Validate required fields
+        if (!name || !url || !description) {
+        alert('Please provide a Name, URL, and Description for the creator.');
+        return;
+        }
+        
         const { error } = await supabase
             .from('creators')
             .update({ name, url, description, imageURL })
@@ -66,6 +72,22 @@ const EditCreators = () => {
         else {
             alert("Creator updated successfully!");
             navigate(`/view/${id}`);
+        }
+    };
+
+    const deleteCreator = async () => {
+        if (confirm("Are you sure you want to delete this creator? This action cannot be undone.")) {
+            const { error } = await supabase
+                .from('creators')
+                .delete()
+                .eq('id', id);
+            if (error) console.error("Error updating creator:", error);
+            else {
+                alert("Creator deleted successfully.");
+                navigate("/");
+            }
+        } else {
+            alert("Creator deletion cancelled.");
         }
     };
 
@@ -94,8 +116,11 @@ const EditCreators = () => {
           <label for="cImgURL"> Creator Image URL: </label> <br/>
           <input type="text" id="cImgURL" name="cImgURL" onChange={(e) => setImageURL(e.target.value)} /> <br/>
         </form>
-
-        <button onClick={updateCreator}> Update Creator </button>
+        
+        <div className="editCreatorButtons">
+            <button onClick={updateCreator}> Update Creator </button>
+            <button onClick={deleteCreator}> Delete Creator </button>
+        </div>
 
     </div>
   )
