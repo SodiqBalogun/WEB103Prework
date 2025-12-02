@@ -9,6 +9,7 @@ import AddCreator from "./pages/AddCreator.jsx";
 import EditCreator from "./pages/EditCreator.jsx";
 import ShowCreators from "./pages/ShowCreators.jsx";
 import ViewCreator from "./pages/ViewCreator.jsx";
+import ThemeToggle from './Components/ThemeToggle.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -34,15 +35,23 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Link to="/add"> GO TO ADD </Link>
+        <div className="navBar">
+          <Link to="/"> <h1 className="creatorverse-logo"> CreatorVerse </h1> </Link>
+          <Link to="/add"> <h2 className="addCreator"> Add A New Creator </h2> </Link>
+          <ThemeToggle className="toggle"/>
+        </div>
 
-      <Routes>
-        <Route path="/" element={<ShowCreators />} />
-        <Route path="/add" element={<AddCreator />} />
-        <Route path="/edit/:id" element={<EditCreator />} />
-        <Route path="/view/:id" element={<ViewCreator />} />
-      </Routes>
-      
+        <div className="mainContent">
+
+          <Routes>
+            <Route path="/" element={<ShowCreators />} />
+            <Route path="/add" element={<AddCreator />} />
+            <Route path="/edit/:id" element={<EditCreator />} />
+            <Route path="/view/:id" element={<ViewCreator />} />
+          </Routes>
+
+        </div>
+
       </BrowserRouter>
 
     </div>

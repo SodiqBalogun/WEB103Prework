@@ -34,12 +34,13 @@ const ShowCreators = () => {
   }
 
   return (
-    <div>
+    <div className="creatorverseMain">
+      <h1> Welcome To Creatorverse! </h1>
       {creators.length === 0 ? (
         <p>No content creators in the database.</p>
       ) : (
         creators.map((c) => (
-          <div key={c.id ?? c.name} className="creator-card">
+          <div key={c.id ?? c.name} className="creator-card" >
             <Link to={`/view/${c.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
               <ContentCreator
                 id={c.id}

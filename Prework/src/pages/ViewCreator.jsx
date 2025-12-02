@@ -64,7 +64,6 @@ const ViewCreator = () => {
 
     return (
         <div className="CreatorInfo">
-            <Link to="/"> HOME </Link>
             <h1> Creator: {creator.name}</h1>
             <h2> Description: {creator.description} </h2>
             <a href={creator.url} target="_blank"> <h2> URL: {creator.url} </h2> </a>

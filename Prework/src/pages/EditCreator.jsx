@@ -93,8 +93,6 @@ const EditCreators = () => {
 
   return (
     <div className="EditCreator">
-
-        <Link to="/"> HOME </Link>
         <h1> Editing Creator: {originalName} </h1>
 
         <h2> Current Values </h2>
@@ -111,7 +109,7 @@ const EditCreators = () => {
           <input type="text" id="cURL" name="cURL" onChange={(e) => setUrl(e.target.value)} /> <br/>
 
           <label for="cDesc"> Creator Description: </label> <br/>
-          <input type="text" id="cDesc" name="cDesc" onChange={(e) => setDescription(e.target.value)} /> <br/>
+          <textarea id="cDesc" name="cDesc" rows="5" onChange={(e) => setDescription(e.target.value)} /> <br/>
 
           <label for="cImgURL"> Creator Image URL: </label> <br/>
           <input type="text" id="cImgURL" name="cImgURL" onChange={(e) => setImageURL(e.target.value)} /> <br/>

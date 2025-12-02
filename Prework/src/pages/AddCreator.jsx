@@ -42,9 +42,7 @@ const AddCreators = () => {
 
   return (
     <div>
-        <h1> This is where we add creators </h1>
-
-        <Link to="/"> HOME </Link>
+        <h1> Adding a New Creator </h1>
 
         <form> 
           <label for="cName"> Creator Name: </label> <br/>
@@ -54,7 +52,7 @@ const AddCreators = () => {
           <input type="text" id="cURL" name="cURL" /> <br/>
 
           <label for="cDesc"> Creator Description: </label> <br/>
-          <input type="text" id="cDesc" name="cDesc" /> <br/>
+          <textarea id="cDesc" name="cDesc" rows="5" /> <br/>
 
           <label for="cImgURL"> Creator Image URL: </label> <br/>
           <input type="text" id="cImgURL" name="cImgURL" /> <br/>
