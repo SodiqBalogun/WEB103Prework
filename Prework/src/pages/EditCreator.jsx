@@ -115,9 +115,9 @@ const EditCreators = () => {
           <input type="text" id="cImgURL" name="cImgURL" onChange={(e) => setImageURL(e.target.value)} /> <br/>
         </form>
         
-        <div className="editCreatorButtons">
-            <button onClick={updateCreator}> Update Creator </button>
-            <button onClick={deleteCreator}> Delete Creator </button>
+        <div className="creatorWidgets">
+            <button onClick={updateCreator} className="individualCreatorButton"> Update Creator </button>
+            <button onClick={deleteCreator} className="individualCreatorButton"> Delete Creator </button>
         </div>
 
     </div>

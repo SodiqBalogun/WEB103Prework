@@ -68,7 +68,8 @@ const ViewCreator = () => {
             <img src={creator.imageURL ?? ''} alt="Creator Image" width="330px"/> <br/> <br/>
             <h2> Description: </h2>
             <h3 className="individualCreatorDescription"> {creator.description} </h3> <br/> <br/>
-            <a href={creator.url} target="_blank"> <h2> URL: {creator.url} </h2> </a>
+            <h2> Creator's YouTube Channel: </h2>
+            <a href={creator.url} target="_blank"> <h3 className="individualCreatorURL"> {creator.url} </h3> </a>
 
             <div className="CreatorWidgets">
                 <Link to={`/edit/${creator.id}`}> <button className="individualCreatorButton"> Edit Creator </button> </Link> 
