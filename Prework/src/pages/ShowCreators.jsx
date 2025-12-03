@@ -53,8 +53,7 @@ const ShowCreators = () => {
                   url={c.url}
                   description={c.description.length >= 150 ?
                      c.description.substring(0, 150) + '...' : 
-                     c.description.substring(0, c.description.length) + '...' + 
-                     " ".repeat(150 - c.description.length)}
+                     c.description}
                   imageURL={c.imageURL != '' ? c.imageURL : 'https://pngimg.com/d/question_mark_PNG53.png'}
                 />
               </Link>
