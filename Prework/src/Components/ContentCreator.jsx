@@ -6,13 +6,15 @@ const ContentCreator = ({ id, name, url, description, imageURL }) => {
             <img src={imageURL} alt={`${name}'s profile`} className="creator-image" />
             <h2 className="creator-name">{name}</h2>
             <p className="creator-description">{description}</p>
-            <a href={url} className="creator-link" target="_blank" rel="noopener noreferrer">Visit Profile</a>
-            <div className="creatorEdit">
-                {id ? (
-                    <Link to={`/edit/${id}`}>
-                        <button type="button">Edit Creator</button>
-                    </Link>
-                ) : null}
+            <div className="creatorButtons">
+                <a href={url} className="creator-link" target="_blank" rel="noopener noreferrer"> <button> Visit Profile </button> </a>
+                <div className="creatorEdit">
+                    {id ? (
+                        <Link to={`/edit/${id}`}>
+                            <button type="button">Edit Creator</button>
+                        </Link>
+                    ) : null}
+                </div>
             </div>
         </div>
     );

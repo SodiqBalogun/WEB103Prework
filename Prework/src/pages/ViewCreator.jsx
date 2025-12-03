@@ -64,14 +64,15 @@ const ViewCreator = () => {
 
     return (
         <div className="CreatorInfo">
-            <h1> Creator: {creator.name}</h1>
-            <h2> Description: {creator.description} </h2>
+            <h1 className="currentCreator"> Creator: {creator.name}</h1> <br/> 
+            <img src={creator.imageURL ?? ''} alt="Creator Image" width="330px"/> <br/> <br/>
+            <h2> Description: </h2>
+            <h3 className="individualCreatorDescription"> {creator.description} </h3> <br/> <br/>
             <a href={creator.url} target="_blank"> <h2> URL: {creator.url} </h2> </a>
-            <img src={creator.imageURL ?? ''} alt="Creator Image" height="230px"/>
 
             <div className="CreatorWidgets">
-                <Link to={`/edit/${creator.id}`}> <button> Edit Creator </button> </Link> 
-                <button onClick={deleteCreator}> Delete Creator </button>
+                <Link to={`/edit/${creator.id}`}> <button className="individualCreatorButton"> Edit Creator </button> </Link> 
+                <button onClick={deleteCreator} className="individualCreatorButton"> Delete Creator </button>
             </div>
         </div>
     );

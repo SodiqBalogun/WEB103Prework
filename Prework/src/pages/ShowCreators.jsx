@@ -48,11 +48,14 @@ const ShowCreators = () => {
             <div key={c.id ?? c.name} className="creator-card" >
               <Link to={`/view/${c.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <ContentCreator
-                  id={c.id}
+                  id={c.id} 
                   name={c.name}
                   url={c.url}
-                  description={c.description}
-                  imageURL={c.image_url ?? c.imageURL ?? ''}
+                  description={c.description.length >= 150 ?
+                     c.description.substring(0, 150) + '...' : 
+                     c.description.substring(0, c.description.length) + '...' + 
+                     " ".repeat(150 - c.description.length)}
+                  imageURL={c.imageURL != '' ? c.imageURL : 'https://pngimg.com/d/question_mark_PNG53.png'}
                 />
               </Link>
             </div>
