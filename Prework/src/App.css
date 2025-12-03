@@ -1,15 +1,20 @@
-#root {
-  /* max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center; */
-}
+/* #root {
+  background-color: rgb(19, 22.5, 30.5);
+} */
 
 .mainContent {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+[data-theme="dark"] .mainContent {
+  background-color: rgb(19, 22, 30);
+}
+
+[data-theme="light"] .mainContent {
+  background-color: rgb(255, 255, 255);
 }
 
 .navBar {
@@ -19,6 +24,7 @@
   text-align: center;
   margin-top: 10px;
   margin-bottom: 2rem;
+  padding-left: 10px;
   border-bottom: 3px solid darkslateblue;
   padding-right: 200px;
 }
@@ -36,6 +42,40 @@
 }
 .addCreator:hover {
   color: rgb(60, 0, 128);
+}
+
+.content-creator {
+  width: 500px;
+  height: 600px;
+  padding: 10px;
+  border: 3px solid darkslateblue;
+  margin: 20px;
+  border-radius: 15px;
+  background-color: #ffffff; /* default (light) */
+  color: inherit;
+}
+
+:root[data-theme="dark"] .content-creator {
+  box-shadow: 5px 5px 15px rgba(137, 46, 210, 0.3);
+  background-color: rgb(28, 24, 35); /* card background in dark mode */
+  color: #eaeaea;
+}
+
+:root[data-theme="light"] .content-creator {
+  box-shadow: 5px 5px 15px rgba(47, 81, 194, 0.3);
+  background-color: #d1b1f0;
+  color: #111;
+}
+
+.creatorList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  margin-top: 200px;
+  padding: 50px 0px 50px 0px;
+  height: auto;
+  width: auto;
 }
 
 a {
