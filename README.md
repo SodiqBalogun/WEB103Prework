@@ -2,7 +2,7 @@
 
 Submitted by: **Sodiq Balogun**
 
-About this web app: **👉🏿 app description here**
+About this web app: **This web app uses React and supabase, providing users the ability to add, edit, delete, and view creators that have been added to a creator database. The web app uses Picocss for simple, lightweight styling.**
 
 Time spent: **10** hours
 
